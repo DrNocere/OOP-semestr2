@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace lab_2_zadanie
 {
-    internal class Shop
+    internal class Shop : IThing
     {
         private string name;
         public string Name { get; set; }
@@ -22,7 +22,26 @@ namespace lab_2_zadanie
 
         public void Print()
         {
-            throw new NotImplementedException();
+            string prefix = "\t";
+            //string prefix = ">>> "; //prefix can be easily exchanged by modifying the value of the 'prefix' variable
+
+            Console.WriteLine($"Shop: {Name}");
+            if(people.Length > 0)
+            {
+                Console.WriteLine("-- People: --");
+                foreach(Person person in people)
+                {
+                    person.Print(prefix);
+                }
+            }
+            if (products.Length > 0)
+            {
+                Console.WriteLine("-- Products: --");
+                foreach (Product product in products)
+                {
+                    product.Print(prefix);
+                }
+            }
         }
     }
 }

@@ -24,7 +24,7 @@
             };
 
             Shop shop = new Shop("Super Market", persons, products);
-
+            //buyer1.Print("\t");//to be removed
             shop.Print();
         }
     }

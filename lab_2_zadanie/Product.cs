@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace lab_2_zadanie
 {
-    internal class Product
+    internal class Product : IThing
     {
         private string name;
         public string Name { get; set; }

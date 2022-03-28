@@ -19,7 +19,8 @@ namespace lab_2_zadanie
 
         public override void Print(string prefix)
         {
-            base.Print(prefix); //not implemented
+            if(count == 1) Console.WriteLine(prefix + $"{Name} ({Count} fruits)");
+            else Console.WriteLine(prefix + $"{Name} ({Count} fruits)");
         }
     }
 }

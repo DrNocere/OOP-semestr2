@@ -17,17 +17,25 @@ namespace lab_2_zadanie
 
         public void AddProduct(Product product)
         {
-            throw new NotImplementedException();
+            tasks.Add(product);
         }
 
         public void RemoveProduct(int index)
         {
-            throw new NotImplementedException();
+            tasks.RemoveAt(index);
         }
 
         public override void Print(string prefix)
         {
-            base.Print(prefix); //not implemented
+            Console.WriteLine(prefix + $"Buyer: {Name} ({Age} y.o.)");
+            if (tasks.Count > 0)
+            {
+                Console.WriteLine(prefix + prefix + "-- Products: --");
+                foreach(var product in tasks)
+                {
+                    product.Print(prefix + prefix);
+                }
+            }
         }
     }
 }

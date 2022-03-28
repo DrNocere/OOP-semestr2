@@ -16,7 +16,7 @@ namespace lab_2_zadanie
 
         public override void Print(string prefix)
         {
-            base.Print(prefix); //not implemented
+            Console.WriteLine(prefix + $"Seller: {Name} ({Age} y.o.)");
         }
     }
 }
