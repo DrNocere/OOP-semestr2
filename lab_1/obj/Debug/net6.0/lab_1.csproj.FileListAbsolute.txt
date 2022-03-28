@@ -1,0 +1,15 @@
+D:\Github Repos\OOP-semestr2\lab_1\bin\Debug\net6.0\lab_1.exe
+D:\Github Repos\OOP-semestr2\lab_1\bin\Debug\net6.0\lab_1.deps.json
+D:\Github Repos\OOP-semestr2\lab_1\bin\Debug\net6.0\lab_1.runtimeconfig.json
+D:\Github Repos\OOP-semestr2\lab_1\bin\Debug\net6.0\lab_1.dll
+D:\Github Repos\OOP-semestr2\lab_1\bin\Debug\net6.0\lab_1.pdb
+D:\Github Repos\OOP-semestr2\lab_1\obj\Debug\net6.0\lab_1.csproj.AssemblyReference.cache
+D:\Github Repos\OOP-semestr2\lab_1\obj\Debug\net6.0\lab_1.GeneratedMSBuildEditorConfig.editorconfig
+D:\Github Repos\OOP-semestr2\lab_1\obj\Debug\net6.0\lab_1.AssemblyInfoInputs.cache
+D:\Github Repos\OOP-semestr2\lab_1\obj\Debug\net6.0\lab_1.AssemblyInfo.cs
+D:\Github Repos\OOP-semestr2\lab_1\obj\Debug\net6.0\lab_1.csproj.CoreCompileInputs.cache
+D:\Github Repos\OOP-semestr2\lab_1\obj\Debug\net6.0\lab_1.dll
+D:\Github Repos\OOP-semestr2\lab_1\obj\Debug\net6.0\refint\lab_1.dll
+D:\Github Repos\OOP-semestr2\lab_1\obj\Debug\net6.0\lab_1.pdb
+D:\Github Repos\OOP-semestr2\lab_1\obj\Debug\net6.0\lab_1.genruntimeconfig.cache
+D:\Github Repos\OOP-semestr2\lab_1\obj\Debug\net6.0\ref\lab_1.dll
