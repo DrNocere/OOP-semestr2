@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace lab_3
 {
-    internal interface Interface1
+    public interface ILogger : IDisposable
     {
+        void Log(params String[] messages);
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace lab_3
 {
-    internal class Class1
+    internal class ConsoleLogger
     {
     }
 }

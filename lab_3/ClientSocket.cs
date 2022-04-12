@@ -1,12 +1,31 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Net;
+using System.Net.Sockets;
+
 
 namespace lab_3
 {
-    internal class Class1
+    public class ClientSocket : IDisposable
     {
+        private bool disposed;
+
+        private Socket socket;
+
+        public ClientSocket(string host, int port)
+        {
+            IPHostEntry entry = Dns.GetHostEntry(host);
+
+            this.socket = new Socket(SocketType.Stream, ProtocolType.Tcp);
+
+            try
+            {
+                this.socket.Connect(entry.AddressList, port);
+            }
+            catch (SocketException ex)
+            {
+                this.socket.Dispose();
+
+                throw ex;
+            }
+        }
     }
 }
