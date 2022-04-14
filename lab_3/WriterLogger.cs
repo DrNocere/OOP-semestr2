@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace lab_3
 {
@@ -12,7 +8,16 @@ namespace lab_3
 
         public virtual void Log(params string[] messages)
         {
-            // Uzupełnić to miejsce o logikę zapisu opartą o TextWriter ...
+            DateTime dateTime = DateTime.Now;
+            string time = dateTime.ToString("yyyy-MM-ddTHH:mm:sszzz");
+
+            writer.Write(time + " ");
+            foreach (string message in messages)
+            {
+                writer.Write(message + " ");
+            }
+            writer.Write("\n");
+            writer.Flush(); //Clears buffers for this stream and causes any buffered data to be written to the file.
         }
 
         public abstract void Dispose();
