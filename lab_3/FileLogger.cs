@@ -13,13 +13,8 @@ namespace lab_3
 
         public FileLogger(string path)
         {
-            using (FileStream stream = new FileStream(path, FileMode.Append))
-            {
-                using (TextWriter writer = new StreamWriter(stream, Encoding.UTF8))
-                {
-                    
-                }
-            }
+            FileStream stream = new FileStream(path, FileMode.Append);
+            writer = new StreamWriter(stream, Encoding.UTF8);
         }
 
         ~FileLogger()
@@ -27,9 +22,21 @@ namespace lab_3
             this.Dispose(false);
         }
 
+        protected virtual void Dispose(bool status)
+        {
+
+            if (!this.disposed)
+            {
+                if (status)
+                    this.stream.Dispose();
+
+                this.disposed = true;
+            }
+        }
+
         public override void Dispose() 
         {
-            this.disposed = true;
+            this.Dispose(status: true);
         }
     }
 }

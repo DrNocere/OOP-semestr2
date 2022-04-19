@@ -27,5 +27,10 @@ namespace lab_3
                 throw ex;
             }
         }
+
+        internal void Dispose()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

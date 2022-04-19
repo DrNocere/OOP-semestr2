@@ -15,11 +15,11 @@ namespace lab_3
             this.loggers = loggers;
         }
 
-        public virtual void Log()
+        public void Dispose() { }
+
+        public void Log()
         {
 
         }
-
-
     }
 }
