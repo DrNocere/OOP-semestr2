@@ -22,12 +22,12 @@ namespace lab_3
             this.Dispose(false);
         }
 
-        protected virtual void Dispose(bool status)
+        protected virtual void Dispose(bool disposed)
         {
 
             if (!this.disposed)
             {
-                if (status)
+                if (disposed)
                     this.stream.Dispose();
 
                 this.disposed = true;
@@ -36,7 +36,9 @@ namespace lab_3
 
         public override void Dispose() 
         {
-            this.Dispose(status: true);
+            this.Dispose(disposed: true);
+
+            GC.SuppressFinalize(this);
         }
     }
 }

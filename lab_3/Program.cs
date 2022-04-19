@@ -1,4 +1,4 @@
-﻿using lab_3.Logger;
+﻿using lab_3;
 
 namespace lab_3
 {

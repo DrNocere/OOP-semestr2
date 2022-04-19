@@ -19,19 +19,30 @@ namespace lab_3
             this.Dispose(false);
         }
 
-        public void Log(params string[] messages)
+        public virtual void Log(params string[] messages)
         {
+            DateTime dateTime = DateTime.Now;
+            string time = dateTime.ToString("yyyy-MM-ddTHH:mm:sszzz");
 
+            foreach (string message in messages)
+            {
+                string requestText = time + message + " ";
+                byte[] requestBytes = Encoding.UTF8.GetBytes(requestText);
+
+                clientSocket.Send(requestBytes);
+            }
         }
 
-        public void Dispose(bool status)
+        public void Dispose(bool dispose)
         { 
-            if (status) this.clientSocket.Dispose();
+            if (dispose) this.clientSocket.Dispose();
         }
 
         public void Dispose()
         {
-            this.Dispose(status: true);
+            this.Dispose(dispose: true);
+
+            GC.SuppressFinalize(this);
         }
     }
 }

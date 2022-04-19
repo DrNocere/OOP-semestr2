@@ -17,9 +17,12 @@ namespace lab_3
 
         public void Dispose() { }
 
-        public void Log()
+        public void Log(params string[] messages)
         {
-
+            foreach (var logger in loggers)
+            {
+                logger.Log(messages);
+            }
         }
     }
 }
