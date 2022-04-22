@@ -9,37 +9,38 @@ namespace lab_4
 {
     internal class DynamicArray<T> : ICollection<T>, IEnumerable<T>
     {
-        public string Name { get; set; }
-        public T[] Array { get; set; }  
+        private T[] array;
 
-        public int Count { get; set; }
+        private int count;
 
         bool ICollection<T>.IsReadOnly => false;
 
-        public DynamicArray(string name)
+        public int Count => throw new NotImplementedException();
+
+        public DynamicArray()
         {
-            Name = name;
-            Array = new T[0];
+            array = new T[0];
         }
 
-        public DynamicArray(string name, int capacity) : this(name)
+        public DynamicArray(int capacity)
         {
-            Array = new T[capacity];
-            Count = capacity;
+            array = new T[capacity];
+            count = capacity;
         }
 
         public void Add(T newValue)
         {
-            Array[Array.Length] = newValue;
+            count++;
+            array[count] = newValue;
         }
 
-        public void Add(int index, T newValue)
+        public void Insert(int index, T newValue)
         {
-            if (Array[index] != null)
+            if (array[index] != null)
             {
 
             }
-            Array[index] = newValue;
+            array[index] = newValue;
             
         }
 
@@ -66,13 +67,14 @@ namespace lab_4
 
         public void Replace(int index, T newValue)
         {
-            Array[index] = newValue;
+            array[index] = newValue;
         }
 
         public T Return(int index)
         {
-            return Array[index]; 
+            return array[index]; 
         }
+
 
         public IEnumerator<T> GetEnumerator()
         {
