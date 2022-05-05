@@ -54,5 +54,27 @@ namespace lab_4
             FileData newFile = new(file.Name, file.FullName, file.Extension, file.Length);
             FilesList.Add(newFile);
         }
+
+        public void PrintNode()
+        {
+            int countDirectories = 0;
+            int countFiles = 0;
+            long sizeDirectories = 0;
+            long sizeFiles = 0;
+            foreach (var file in FilesList)
+            {
+                countFiles++;
+                sizeFiles += file.SizeBytes;
+            }
+            foreach (var directory in DirectoriesList)
+            {
+                countDirectories++;
+                sizeDirectories += directory.Size;
+            }
+            Console.WriteLine("Nodes:");
+            Console.WriteLine("\t      [count]\t[total size]");
+            Console.WriteLine($"Directories:\t{countDirectories}\t{sizeDirectories}");
+            Console.WriteLine($"Files:\t\t{countFiles}\t{sizeFiles}");
+        }
     }
 }

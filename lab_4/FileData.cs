@@ -10,7 +10,8 @@ namespace lab_4
     {
         public string Name { get; }
         public string Path { get; }
-        public long Size { get; }
+        public string Size { get; }
+        public long SizeBytes { get; }
         public string Extension { get; }
         public string Type { get; }
 
@@ -19,30 +20,9 @@ namespace lab_4
             this.Name = Name;
             Path = FullName;
             this.Extension = Extension;
-            Size = Length;
-
-            Type = Extension switch
-            {
-                "png" => "image",
-                "webp" => "image",
-                "jpg" => "image",
-                "gif" => "image",
-                "tiff" => "image",
-                "ogg" => "audio",
-                "mp3" => "audio",
-                "mp4a" => "audio",
-                "flac" => "audio",
-                "wav" => "audio",
-                "mkv" => "video",
-                "mp4" => "video",
-                "webm" => "video",
-                "txt" => "document",
-                "doc" => "document",
-                "docx" => "document",
-                "xml" => "document",
-                "xlmx" => "document",
-                _ => "other"
-            };
+            SizeBytes = Length;
+            Size = Tools.ConvertSize(Length);
+            Type = Tools.AssignType(Extension);
         }
     }
 }

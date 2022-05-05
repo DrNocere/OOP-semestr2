@@ -10,7 +10,7 @@ namespace lab_4
     {
         public string Name { get; }
         public string Path { get; }
-        public double Size { get; }
+        public long Size { get; }
 
         public DirectoryData(string subdirectory, long subDirSize)
         {
