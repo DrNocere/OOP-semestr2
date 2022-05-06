@@ -4,17 +4,22 @@
     {
         public static void Main(string[] args)
         {
-            DataReader myNode = new("D:/test/");
+            DataReader myDir = new("D:/test/");
 
-            myNode.PrintNode();
-            /*OrderByNameAndSize byName = new(myNode.files);
-            byName.PrintByName();
-            byName.PrintBySize();
-            OrderByFirstLetter byFirstLetter = new(myNode.files);
-            byFirstLetter.PrintByFirstLetter();
-            ByTypes byTypes = new(myNode.files);
-            byTypes.Print();
-            */
+            myDir.PrintNodes();
+            Console.WriteLine("Files:");
+            ByType byType = new ByType(myDir.FilesList);
+            byType.Print();
+            ByExtensions byExtensions = new ByExtensions(myDir.FilesList);
+            byExtensions.Print();
+            BySize bySize = new BySize(myDir.FilesList);
+            bySize.Print();
+            CByLetters cByLetters = new CByLetters(myDir.FilesList);
+            cByLetters.Print();
+            OByName oByName = new OByName(myDir.FilesList);
+            oByName.Print();
+            OBySize oBySize = new OBySize(myDir.FilesList);
+            oBySize.Print();
         }
     }
 }

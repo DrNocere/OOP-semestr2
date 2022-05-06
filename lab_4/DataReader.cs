@@ -55,7 +55,7 @@ namespace lab_4
             FilesList.Add(newFile);
         }
 
-        public void PrintNode()
+        public void PrintNodes()
         {
             int countDirectories = 0;
             int countFiles = 0;
@@ -72,9 +72,9 @@ namespace lab_4
                 sizeDirectories += directory.Size;
             }
             Console.WriteLine("Nodes:");
-            Console.WriteLine("\t      [count]\t[total size]");
-            Console.WriteLine($"Directories:\t{countDirectories}\t{sizeDirectories}");
-            Console.WriteLine($"Files:\t\t{countFiles}\t{sizeFiles}");
+            Console.WriteLine("\t\t[count]\t\t[total size]");
+            Console.WriteLine($"   Directories:\t{countDirectories}\t\t{Tools.ConvertSize(sizeDirectories)}");
+            Console.WriteLine($"   Files:      \t{countFiles}\t\t{Tools.ConvertSize(sizeFiles)}");
         }
     }
 }

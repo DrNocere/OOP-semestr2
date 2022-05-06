@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,24 +6,45 @@ using System.Threading.Tasks;
 
 namespace lab_4
 {
-    internal class ByExtensions : IEnumerable<string>
+    internal class BySize : IEnumerable<string>
     {
-        private readonly IDictionary<string, List<FileData>> filesByExtension = new Dictionary<string, List<FileData>>();
+        private readonly IDictionary<string, List<FileData>> filesBySize = new Dictionary<string, List<FileData>>();
 
-        public ByExtensions(List<FileData> fData)
+        public BySize(List<FileData> fData)
         {
+            string keyA = "      . <= 1KB";
+            string keyB = "1KB < . <= 1MB";
+            string keyC = "1MB < . <= 1GB";
+            string keyD = "1GB < .       ";
+            List<FileData> catA = new List<FileData>();
+            List<FileData> catB = new List<FileData>();
+            List<FileData> catC = new List<FileData>();
+            List<FileData> catD = new List<FileData>();
 
             foreach (var file in fData)
             {
-                if (filesByExtension.ContainsKey(file.Extension))
+                if (file.SizeBytes <= 1024)
                 {
-                    filesByExtension[file.Extension].Add(file);
+                    catA.Add(file);
                 }
-                else
+                if (file.SizeBytes > 1024 && file.SizeBytes <= 1048576)
                 {
-                    filesByExtension.Add(file.Extension, new List<FileData> { file });
+                    catB.Add(file);
+                }
+                if (file.SizeBytes > 1048576 && file.SizeBytes <= 1073741824)
+                {
+                    catC.Add(file);
+                }
+                if (file.SizeBytes > 1073741824)
+                {
+                    catD.Add(file);
                 }
             }
+
+            if (catA.Count > 0) filesBySize.Add(keyA, catA);
+            if (catB.Count > 0) filesBySize.Add(keyB, catB);
+            if (catC.Count > 0) filesBySize.Add(keyC, catC);
+            if (catD.Count > 0) filesBySize.Add(keyD, catD);
         }
 
         public List<string> CategoryInfo(List<FileData> fData)
@@ -61,12 +81,12 @@ namespace lab_4
 
         public void Print()
         {
-            Console.WriteLine("   By extensions:");
+            Console.WriteLine("   By size:");
             Console.WriteLine("\t\t[count]\t\t[total size]\t[avg size]\t[min size]\t[max size]");
-            foreach (var extension in filesByExtension)
+            foreach (var sizeCat in filesBySize)
             {
-                List<string> text = CategoryInfo(extension.Value);
-                Console.Write(extension.Key + ":   \t");
+                List<string> text = CategoryInfo(sizeCat.Value);
+                Console.Write(sizeCat.Key + ":\t");
                 foreach (var item in text)
                 {
                     Console.Write(item + "\t\t");
@@ -75,7 +95,7 @@ namespace lab_4
             }
         }
 
-        IEnumerator IEnumerable.GetEnumerator()
+        System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
         {
             throw new NotImplementedException();
         }
